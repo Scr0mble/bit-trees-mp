@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-public class BitTree {
-  
-=======
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.security.InvalidParameterException;
+import java.util.Scanner;
 
 public class BitTree<T> {
   // +--------+------------------------------------------------------
@@ -84,7 +82,7 @@ public class BitTree<T> {
     dumpHelper(pen, root, "");
   }
 
-  void dumpHelper(PrintWriter pen, BinaryTreeNode<String> node, String result) {
+  private void dumpHelper(PrintWriter pen, BinaryTreeNode<String> node, String result) {
     pen.flush();
     if (node == null) {
       pen.print("");
@@ -98,5 +96,15 @@ public class BitTree<T> {
     } // else
   } // dump
 
->>>>>>> 001ae1d97f3536b95e7fc305f938b47315cf9360
+  public void load(InputStream source) {
+    Scanner lreader = new Scanner(source);
+    String bitMap;
+    while(lreader.hasNextLine()) {
+      bitMap = lreader.nextLine();
+      String[] parsd = bitMap.split(",", 2);
+      set(parsd[0], parsd[1]);
+    }
+    lreader.close();
+    return;
+  }
 }
