@@ -1,20 +1,38 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class BrailleASCIITables {
   // +--------+------------------------------------------------------
   // | Fields |
   // +--------+
 
-  BitTree<String> brailleToASCII;
-  BitTree<String> ASCIIToBraille;
-  BitTree<String> brailleToUnicode;
+  BitTree brailleToASCII;
+  BitTree ASCIIToBraille;
+  BitTree brailleToUnicode;
 
   // +--------------+------------------------------------------------
   // | Constructors |
   // +--------------+
 
   public BrailleASCIITables() {
-    this.brailleToASCII = new BitTree<String>(6);
-    this.ASCIIToBraille = new BitTree<String>(8);
-    this.brailleToUnicode = new BitTree<String>(6);
+    this.brailleToASCII = new BitTree(6);
+    try {
+      brailleToASCII.load(new FileInputStream("BrailleToASCII.txt"));
+    } catch (FileNotFoundException e) {
+      System.exit(0);
+    }
+    this.ASCIIToBraille = new BitTree(8);
+    try {
+      ASCIIToBraille.load(new FileInputStream("ASCIIToBraille.txt"));
+    } catch (FileNotFoundException e) {
+      System.exit(0);
+    }
+    this.brailleToUnicode = new BitTree(6);
+    try {
+      brailleToUnicode.load(new FileInputStream("BrailleToUnicode.txt"));
+    } catch (FileNotFoundException e) {
+      System.exit(0);
+    }
   }
 
   // +---------+-----------------------------------------------------

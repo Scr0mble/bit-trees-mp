@@ -2,7 +2,7 @@
  * Nodes in a binary tree.
  * @author Sam R
  */
-class BinaryTreeNode<T> {
+class BinaryTreeNode {
 
   // +--------+------------------------------------------------------
   // | Fields |
@@ -11,29 +11,29 @@ class BinaryTreeNode<T> {
   /**
    * The value in this node.
    */
-  T value;
+  String value;
   
   /**
    * The left subtree.
    */
-  BinaryTreeNode<T> left;
+  BinaryTreeNode left;
   
   /**
    * The right subtree.
    */
-  BinaryTreeNode<T> right;
+  BinaryTreeNode right;
  
   // +--------------+------------------------------------------------
   // | Constructors |
   // +--------------+
 
-  public BinaryTreeNode(T value, BinaryTreeNode<T> left, BinaryTreeNode<T> right) {
+  public BinaryTreeNode(String value, BinaryTreeNode left, BinaryTreeNode right) {
     this.value = value;
     this.left = left;
     this.right = right;
   } // BinaryTreeNode(T, BinaryTreeNode, BinaryTreeNode)
   
-  public BinaryTreeNode(T value) {
+  public BinaryTreeNode(String value) {
     this(value, null, null);
   } // BinaryTreeNode(T)
 } // class BinaryTreeNode<T>

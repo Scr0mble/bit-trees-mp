@@ -3,7 +3,7 @@ import java.io.PrintWriter;
 import java.security.InvalidParameterException;
 import java.util.Scanner;
 
-public class BitTree<T> {
+public class BitTree {
   // +--------+------------------------------------------------------
   // | Fields |
   // +--------+
@@ -11,7 +11,7 @@ public class BitTree<T> {
   /** 
    * The root of the tree 
    */
-  BinaryTreeNode<String> root;
+  BinaryTreeNode root;
 
   /**
    *  The size of the tree 
@@ -27,26 +27,26 @@ public class BitTree<T> {
    */
   public BitTree(int n) {
     this.size = n;
-    this.root = new BinaryTreeNode<String>("");
+    this.root = new BinaryTreeNode("");
   }
 
   // +---------+-----------------------------------------------------
   // | Methods |
   // +---------+
 
-  public BinaryTreeNode<String> traverse(String code, BinaryTreeNode<String> cur) {
+  public BinaryTreeNode traverse(String code, BinaryTreeNode cur) {
     for(int i = 0; i < code.length(); i++) {
       char comp = code.charAt(i);
       if(comp == '0') {
         if(cur.left == null) {
-          cur.left = new BinaryTreeNode<String>("");
+          cur.left = new BinaryTreeNode("");
           cur = cur.left;
         } else {
           cur = cur.left;
         }
       } else if(comp == '1') {
         if(cur.right == null) {
-          cur.right = new BinaryTreeNode<String>("");
+          cur.right = new BinaryTreeNode("");
           cur = cur.right;
         } else {
           cur = cur.right;
@@ -62,7 +62,7 @@ public class BitTree<T> {
     if(bits.length() != this.size) {
       throw new InvalidParameterException();
     }
-    BinaryTreeNode<String> cur = this.root;
+    BinaryTreeNode cur = this.root;
     cur = traverse(bits, cur);
     
     cur.value = value;
@@ -73,7 +73,7 @@ public class BitTree<T> {
     if(bits.length() != this.size) {
       throw new InvalidParameterException();
     }
-    BinaryTreeNode<String> cur = this.root;
+    BinaryTreeNode cur = this.root;
     cur = traverse(bits, cur);
     return cur.value;
   }
@@ -82,7 +82,7 @@ public class BitTree<T> {
     dumpHelper(pen, root, "");
   }
 
-  private void dumpHelper(PrintWriter pen, BinaryTreeNode<String> node, String result) {
+  private void dumpHelper(PrintWriter pen, BinaryTreeNode node, String result) {
     pen.flush();
     if (node == null) {
       pen.print("");
