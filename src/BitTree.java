@@ -11,12 +11,12 @@ public class BitTree {
   /** 
    * The root of the tree 
    */
-  BinaryTreeNode root;
+  private BinaryTreeNode root;
 
   /**
    *  The size of the tree 
    */
-  int size;
+  private int size;
 
   // +--------------+------------------------------------------------
   // | Constructors |
@@ -106,5 +106,9 @@ public class BitTree {
     }
     lreader.close();
     return;
+  }
+
+  public int getSize() {
+    return this.size;
   }
 }
